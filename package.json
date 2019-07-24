@@ -1,0 +1,76 @@
+{
+  "name": "imgmin-loader",
+  "version": "0.1.0",
+  "description": "Image loader module for webpack",
+  "main": "lib/cjs.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production babel src -d lib --copy-files",
+    "test": "cross-env NODE_ENV=test npm run test:coverage",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vhtml/imgmin-loader.git"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "files": [
+    "lib"
+  ],
+  "author": "vhtml",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vhtml/imgmin-loader/issues"
+  },
+  "homepage": "https://github.com/vhtml/imgmin-loader#readme",
+  "peerDependencies": {
+    "webpack": "^4.0.0",
+    "imagemin": "^6.0.0 || ^7.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@webpack-contrib/eslint-config-webpack": "^3.0.0",
+    "conventional-changelog-cli": "^2.0.21",
+    "cross-env": "^5.2.0",
+    "cz-conventional-changelog": "^3.0.2",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.0.1",
+    "imagemin": "^7.0.0",
+    "lint-staged": "^9.2.0",
+    "prettier": "^1.18.2",
+    "webpack": "^4.36.1"
+  },
+  "dependencies": {
+    "loader-utils": "^1.2.3",
+    "schema-utils": "^2.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md,yml,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

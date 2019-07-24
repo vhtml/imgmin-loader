@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "description": "Enables/Disables transformation target file into base64 URIs",
+      "type": ["boolean", "number", "string"]
+    },
+    "plugins": {
+      "type": "array",
+      "items": {
+        "description": "Imagemin Plugins",
+        "type": "object",
+        "required": ["use"]
+      }
+    }
+  }
+}
