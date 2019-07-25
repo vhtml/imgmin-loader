@@ -1,11 +1,12 @@
 {
   "name": "imgmin-loader",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "Image loader module for webpack",
   "main": "lib/cjs.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src -d lib --copy-files",
     "test": "jest --collectCoverageFrom=\"src/**/*.js\" --coverage",
+    "prepublishOnly": "npm test && npm run build",
     "changelog": "conventional-changelog -i CHANGELOG.md -s"
   },
   "repository": {
