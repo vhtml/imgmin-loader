@@ -8,9 +8,7 @@
     "plugins": {
       "type": "array",
       "items": {
-        "description": "Imagemin Plugins",
-        "type": "object",
-        "required": ["use"]
+        "description": "Imagemin Plugins"
       }
     }
   }

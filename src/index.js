@@ -1,10 +1,4 @@
-/* eslint-disable
-  global-require,
-  no-param-reassign,
-  prefer-destructuring,
-  import/no-dynamic-require,
-*/
-
+/* eslint-disable global-require */
 import { getOptions } from 'loader-utils';
 import validateOptions from 'schema-utils';
 
@@ -30,10 +24,6 @@ export default function loader(src) {
     baseDataPath: 'options',
   });
 
-  if (typeof options.plugins === 'function') {
-    options.plugins = options.plugins(this);
-  }
-
   if (!Array.isArray(options.plugins) || options.plugins.length === 0) {
     return src;
   }
@@ -43,7 +33,7 @@ export default function loader(src) {
     return require('imagemin')
       .buffer(src, options)
       .then((buffer) => {
-        if (buffer.length <= src.length) {
+        if (buffer.length >= src.length) {
           callback(null, src);
         } else {
           callback(null, buffer);
