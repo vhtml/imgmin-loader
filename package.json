@@ -19,7 +19,7 @@
     "lib"
   ],
   "author": "vhtml",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/vhtml/imgmin-loader/issues"
   },
@@ -67,7 +67,7 @@
       "eslint --fix",
       "git add"
     ],
-    "*.{json,md,yml,css}": [
+    "*.{json,yml,css}": [
       "prettier --write",
       "git add"
     ]
@@ -76,5 +76,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "engines": {
+    "node": ">= 8.9.0"
   }
 }
